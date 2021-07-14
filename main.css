@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  width: 300px;
+  height: 200px;
+  margin: 50px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.wrap>div {
+	position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  font-size: 36px;
+  color: #fff;
+  transition: all .3s;
+}
+
+.slide1 {
+  background-color: #FFB295;
+}
+
+.slide2 {
+  background-color: #DD4EA1;
+}
+
+.slide3 {
+  background-color: #4992C6;
+}
+
+.slide4 {
+  background-color: #71C8BB;
+}
+
+.current {
+	z-index: 1;
+	transform: translateX(0);
+}
+
+.leave {
+	transform: translateX(-100%);
+}
+
+.enter {
+	transform: translateX(100%);
+}
