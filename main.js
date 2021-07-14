@@ -8,6 +8,7 @@ setInterval(() => {
   makeLeave(getSlide(n))
     .one('transitionend', (e) => {
       makeEnter($(e.currentTarget)) // 千万注意，这里不可以写 $this, 此处的 this 是 window
+                                    // 也不能写 getSlide(n)，此处是异步代码，会在 n++ 之后才执行
     })
 
   makeCurrent(getSlide(n + 1))
