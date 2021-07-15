@@ -10,6 +10,9 @@ let currentIndex = 1
 
 let timer
 
+// 防止快速点击出现错乱
+let isMoving = false
+
 initSlideWrap()
 
 listenToPoints()
@@ -78,6 +81,11 @@ function listenToPoints() {
 }
 
 function slideTo(targetIndex) {
+	if (isMoving) {
+		return
+	}
+
+	isMoving = true
   $slideWrap.css({ transform: `translateX(-${targetIndex * WIDTH}px)` })
 
   currentIndex = targetIndex
@@ -92,6 +100,7 @@ function listenToSlideWrap() {
       currentIndex = LENGTH
       translateWithNoTransition()
     }
+    isMoving = false
   })
 }
 
